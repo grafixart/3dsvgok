@@ -8,9 +8,10 @@
     "dev:engine": "npm --workspace=packages/engine run dev",
     "dev:web": "npm --workspace=packages/web run dev",
     "build": "npm --workspace=packages/engine run build && npm --workspace=packages/web run build",
-    "build:engine": "npm --workspace=packages/engine run build"
+    "build:engine": "npm --workspace=packages/engine run build",
+    "check": "npm run build:engine && npm --workspace=packages/web exec tsc -- --noEmit"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20.9.0"
   }
 }
