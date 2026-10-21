@@ -1,4 +1,12 @@
-# 3dsvg
+# 3dsvgok
+
+## About this derivative
+
+This repository is a personal derivative of [renatoworks/3dsvg](https://github.com/renatoworks/3dsvg), originally created by Renato Costa under the MIT license. The upstream author and license are preserved.
+
+The [`3dsvg` npm package](https://www.npmjs.com/package/3dsvg) and [3dsvg.design](https://3dsvg.design) referenced below belong to the upstream project. This repository does not publish a separate npm package or operate that website. Its current focus is maintaining the copied editor and its deployment configuration.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for local checks and how to propose a change.
 
 ![3dsvg](.github/assets/demo.png)
 
@@ -20,13 +28,27 @@ The web editor renders the engine's `<SVG3D>` component directly — what you se
 
 ## Quick Start
 
+Use **Node.js 20.9 or newer** and npm. The web workspace uses Next.js 16, whose minimum Node.js version is 20.9; Node.js 18 is not supported. CI checks the project on Node.js 24, on Linux and Windows.
+
 ```bash
-npm install
+npm ci --ignore-scripts
 npm run build:engine
 npm run dev:web
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
+
+## Development checks
+
+From the repository root, run:
+
+```bash
+npm run check
+```
+
+This builds the engine, including its TypeScript declarations, before type-checking the web workspace against the local engine. It does not start a server, deploy the app, publish to npm, or require an API key.
+
+The same command runs in GitHub Actions for pushes and pull requests. A passing check covers compilation and types; it does not replace testing the editor and its exports in a browser.
 
 ## Embed
 
